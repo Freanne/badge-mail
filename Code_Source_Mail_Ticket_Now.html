@@ -50,23 +50,6 @@
       margin: 10px 0;
     }
 
-    .code {
-      padding: 10px;
-      background-color: #f4f4f4;
-    }
-
-    .code h4 {
-      margin: 5px 0;
-    }
-
-    .code button {
-      background-color: yellow;
-      border: none;
-      border-radius: 5px;
-      padding: 10px;
-      margin-top: 10px;
-    }
-
     .footer {
       text-align: left;
       padding: 20px;
@@ -87,56 +70,59 @@
       padding: 8px;
       text-align: left;
     }
-
     .ticket-container {
-        display: flex;
+      display: flex;
+      padding-left: 20px ;
+      padding-right: 20px;
     }
-
     .left-section {
-        background-color: #007bff;
-        color: white; 
-        padding: 13px;
-        border-radius: 10px 0 0 10px;
-        /* flex-direction: column; */
-        position: relative;
+        width: 250px;
+        color:white;
+        background-color: rgb(252, 24, 24); 
+        border-radius: 10px;
         border-right: 3px dotted black;
-        box-shadow: 5px 4px 6px rgba(0, 0, 0, 0.1);
+        height: 150px;
+        padding: 8px;
     }
 
     .right-section {
-        background-color: #ddd;
-        padding: 38px; 
-        border-radius: 0 10px 10px 10px;
-        border-left: 1px solid #ddd;
-        /* align-items: center; */
-        justify-content: center;
-        position: relative;
-        box-shadow: 5px 4px 6px rgba(0, 0, 0, 0.1);
+        padding:80px;
+        background-color: rgb(253, 253, 253); 
+        border-radius: 20px;  
+        height: 150px;
+        width: 200px;
+        padding: 8px;
     }
-
+        
     .right-section::before {
-        content: '';
-        position: absolute;
-        width: 20px; 
-        height: 15px; 
-        background-color: white;
-        border-radius: 0px 0px 10px 10px;
-        top: 0;
-        left: -10px; 
-        z-index: 1; 
+          content: '';
+          position: absolute;
+          width: 20px; 
+          height: 15px; 
+          background-color:white;
+          border-radius: 0px 0px 10px 10px;
+          top: 0;
+          left: -10px; 
+          z-index: 1; 
     }
 
     .left-section::after{
-        content: '';
-        position: absolute;
-        width: 20px; 
-        height: 15px; 
-        background-color: white;
-        border-radius: 10px 10px 0px 0px;
-        bottom: 0;
-        right: -10px; 
-        z-index: 1; 
+          content: '';
+          position: absolute;
+          width: 20px; 
+          height: 15px; 
+          background-color: white;
+          border-radius: 10px 10px 0px 0px;
+          bottom: 0;
+          right: -10px; 
+          z-index: 1; 
     }
+
+    .left-section, .right-section {
+        position: relative;
+        box-shadow: 5px 4px 6px rgba(0, 0, 0, 0.1); 
+    }
+
   </style>
 </head>
 
@@ -165,23 +151,23 @@
           </tr>
           <tr>
             <td>
-              <table width="100%">
+              <table width="100%" >
                 <% tickets.forEach(ticket => { %>
-                    <tr>
-                        <td width="150">
-                          <td class="ticket-container">
-                            <td class="left-section">
-                              <p>Africa Story Telling</p>
-                              <p>Name: <br> John Smith</p>
-                              <p>Payment ID:<br> WTS0012</p>
-                            </td>
-                    
-                            <td class="right-section">
-                              <img src="/home/anne-marie/Documents/REACT-PROJECTS/714390.png" alt="QR Code" width="100">
-                            </td>
-                          </td>
-                        </td>
-                      </tr>
+                  <tr align="center" >
+                    <td class="ticket-container" >
+                      <div class="left-section">
+                        <p style="line-height: 1.2; font-size: 18px;">Africa Story Telling</p>
+                        <p style="font-size: small;">Name: </p>
+                        <p style="line-height: 0.1;">John Smith</p>
+                        <p style="font-size: small;">Payment ID:</p>
+                        <p style="line-height: 0.1;">WTS0012</p>
+                      </div>
+                      <div class="right-section">
+                        <img src="<%= ticket.image_mouvment_url || 'https://example.com/default-ticket.jpg' %>" alt="QR Code" width="100">
+                      </div>
+                    </td>
+                  </tr>
+                  
                 <% }) %>
                 <tr style="border-top: 1px solid #dddddd; padding-top: 15px;">
                   <td colspan="2" style="padding-top: 20px; font-weight: bold;">Montant total :</td>
